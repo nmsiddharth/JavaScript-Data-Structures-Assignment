@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <style>
+        .back {
+            background: url(../ContactForm/assets/images/image10.jpg);
+            padding:30px 0%;
+            margin: 0%;
+        }
+
+        .banner {
+            background-color: rgba(248, 231, 237, 0.5);;
+            width: 400px;
+            height: auto;
+            border-radius: 10px;
+            margin: auto;
+            padding-top: 10px;
+            padding-bottom: 40px;
+        }
+
+        h1 {
+            text-decoration: underline;
+            color: blue;
+            font-size: 30px;
+        }
+         label{
+            color: black;
+            font-weight: bold;
+        }
+        p{
+            color: black;
+            font-weight: bolder;
+            font-style: italic;
+        }
+        
+        
+         #name1, #email, #mob, #city {
+            width: 250px;
+            height: 30px;
+            border-radius: 5px;
+        }
+
+        [type=submit] {
+            background-color: rgb(22, 126, 246);
+            color: #fff;
+            padding: 10px;
+        }
+
+        [type=reset] {
+            background-color: red;
+            color: #fff;
+            padding: 10px;
+        }
+        .show{
+            width: 400px;
+            margin: auto;
+            color: blue;
+            border-radius: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="back">
+        <section class="banner">
+            <center>
+                <h1>Contact Form</h1>
+
+
+                <form onsubmit="validation(event)" name="myForm">
+                    <label for="">FullName</label>
+                    <br><br>
+                    <input type="text" name="name" id="name1">
+                    <h3 id="result1"></h3>
+                    <br><br>
+
+                    <label for="">Email id</label>
+                    <br>
+                    <input type="text" name="email" id="email">
+                    <h3 id="result2"></h3>
+                    <br> <br>
+
+                    <label for="">Mobile Number</label>
+                    <br>
+                    <input type="text" name="mob" id="mob">
+                    <h3 id="result3"></h3>
+                    <br><br>
+
+                    <label for="city">City</label>
+                    <br>
+                    <select name="city" id="city">
+                        <option value="">Choose City Name</option>
+                        <option value="Bengaluru">Bengaluru</option>
+                        <option value="Ballari">Ballari</option>
+                    </select>
+                    <h3 id="result4"></h3>
+                    <br>
+
+                    <p>Gender</p>
+                    <label for="male">Male</label>
+                    <input type="radio" value="Male" id="male" name="gender">
+
+                    <label for="female">Female</label>
+                    <input type="radio" value="Female" id="female" name="gender">
+                    <h3 id="result5"></h3>
+                    <br>
+
+                    <p>Languages (Optional)</p>
+                    <label for="Kannada">Kannada</label>
+                    <input type="checkbox" value="Kannada" name="Language" id="kannada">
+
+                    <label for="English">English</label>
+                    <input type="checkbox" value="English" name="Language" id="English">
+
+                    <label for="Hindi">Hindi</label>
+                    <input type="checkbox" value="Hindi" name="Language" id="Hindi">
+
+                    <label for="Tamil">Tamil</label>
+                    <input type="checkbox" value="Tamil" name="Language" id="Tamil">
+
+                    <label for="Telugu">Telugu</label>
+                    <input type="checkbox" value="Telugu" name="Language" id="Telugu">
+
+                    <h3 id="result6"></h3>
+                    <br><br>
+
+                    <button type="submit">Submit</button>
+                    <button type="reset" onclick="resett()">Reset</button>
+                </form>
+
+            </center>
+
+        </section>
+    </section>
+
+
+    <center class="show">
+
+        <h3 id="display"></h3>
+
+    </center>
+
+    <script>
+        function validation(e) {
+            e.preventDefault();
+            let input = document.getElementById("name1").value;
+            var output = document.getElementById("result1");
+            let input2 = document.getElementById("email").value;
+            var output2 = document.getElementById("result2");
+            let input3 = document.getElementById("mob").value;
+            var output3 = document.getElementById("result3");
+            let input4 = document.getElementById("city").value;
+            var output4 = document.getElementById("result4");
+            let gender1 = document.getElementById("male");
+            let gender2 = document.getElementById("female");
+            var output5 = document.getElementById("result5");
+            let kannada = document.getElementById("kannada");
+            let english = document.getElementById("English");
+            let hindi = document.getElementById("Hindi");
+            let tamil = document.getElementById("Tamil");
+            let telugu = document.getElementById("Telugu");
+            var output6 = document.getElementById("result6");
+
+            var display = document.getElementById("display");
+
+            var regex2 = /^[a-z]{1,}\s([a-z]{1,}\s)?[a-z]{1,}$/i;
+            var regex = /^\S+@\S+\.\S+$/;
+            var regex1 = /^[6-9]\d{9}$/;
+
+
+
+            if (input.length == 0) {
+                output.style.color = "red";
+                output.innerHTML = "Name field cannot be empty";
+            } else {
+                if (regex2.test(input) == false) {
+                    output.style.color = "red";
+                    output.innerHTML = " Please enter Valid UserName";
+                } else {
+                    output.style.color = "green";
+                    output.innerHTML = "Valid UserName";
+                    display.innerHTML += `Name = ${input} <br>`;
+                }
+            }
+
+
+            //  Email Validation
+
+            if (input2.length == 0) {
+                output2.style.color = "red";
+                output2.innerHTML = "Please enter Email ID";
+            } else {
+                if (regex.test(input2) === false) {
+                    output2.style.color = "red";
+                    output2.innerHTML = "Invalid Email ID";
+                } else {
+                    output2.style.color = "green";
+                    output2.innerHTML = "Valid email";
+                    display.innerHTML += `Email ID = ${input2}<br>`;
+                }
+            }
+
+
+            // MObile Number Validation
+
+            if (input3.length == 0) {
+                output3.style.color = "red";
+                output3.innerHTML = "Mobile field cannot be empty";
+            } else {
+                if (regex1.test(input3) == false) {
+                    output3.style.color = "red";
+                    output3.innerHTML = "Invalid Mobile number";
+                } else {
+                    output3.style.color = "green";
+                    output3.innerHTML = "Valid Mobile Number";
+                    display.innerHTML += `Mobile Number = ${input3} <br>`;
+                }
+            }
+
+            // City JS code
+
+            if (input4 == "") {
+                output4.style.color = "red";
+                output4.innerHTML = "Please select city name";
+            } else {
+                output4.style.color = "green";
+                output4.innerHTML = "City Name choosed";
+                display.innerHTML += `City = ${input4} <br>`;
+            }
+
+
+            // Gender JS code
+
+            if (gender1.checked || gender2.checked) {
+                output5.style.color = "green";
+                output5.innerHTML = "Gender Chosen";
+                if (gender1.checked) {
+                    display.innerHTML += `Gender= ${gender1.value}<br>`;
+                } else {
+                    display.innerHTML += `Gender= ${gender2.value}<br>`;
+                }
+            } else {
+                output5.style.color = "red";
+                output5.innerHTML = "Please select gender";
+            }
+
+            //  Language JS Code
+
+            var language = [kannada, english, hindi, tamil, telugu];
+
+            if (kannada.checked || english.checked || hindi.checked || tamil.checked || telugu.checked) {
+                output6.style.color = "green";
+                output6.innerHTML = "Language Chosen";
+                display.innerHTML += "Languages =";
+
+                for (var index = 0; index < language.length; index++) {
+                    if ((language[index].checked)) {
+                        display.innerHTML += `${language[index].value},`;
+                    }
+
+                }
+            } else {
+                output6.style.color = "red";
+                output6.innerHTML = "Please select language";
+            }
+        }
+
+        function resett() {
+            display.innerHTML = "";
+            let clear = document.getElementById("result1");
+            clear.innerHTML = "";
+            let clear2 = document.getElementById("result2");
+            clear2.innerHTML = "";
+            let clear3 = document.getElementById("result3");
+            clear3.innerHTML = "";
+            let clear4 = document.getElementById("result4");
+            clear4.innerHTML = "";
+            let clear5 = document.getElementById("result5");
+            clear5.innerHTML = "";
+            let clear6 = document.getElementById("result6");
+            clear6.innerHTML = "";
+
+        }
+    </script>
+</body>
+
+</html>
