@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA</title>
+</head>
+
+<body>
+    <section class="banner">
+        <h1>Array Whose Sum is Equal to Given Number</h1>
+
+        <form onsubmit="findingSum(event)" id="form">
+            <div class="input1">
+                <label for="inp1">Enter Array Elements:</label>
+                <input type="text" name="inp1" id="inp1" />
+                <br /><br />
+                <label for="inp2">Enter Key value:</label>
+                <input type="number" name="inp2" id="inp2" />
+            </div>
+
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+
+        <div id="result"></div>
+
+    </section>
+
+    <script>
+        function findingSum(dsa){
+            dsa.preventDefault();
+
+            let input = document.getElementById("inp1").value;
+            let arr = input.split(" ").map(Number);
+            let key = Number(document.getElementById("inp2").value);
+            let output = document.getElementById("result");
+           
+            for(i=0;i<arr.length;i++){
+                for(j=i+1;j<arr.length;j++){
+                    if(arr[i] + arr[j] == key){
+                        output.innerHTML= `arrIndex[${i}] = ${arr[i]} + arrIndex[${j}] = ${arr[j]} => ${key}`;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
