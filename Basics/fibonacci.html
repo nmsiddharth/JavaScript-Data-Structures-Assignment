@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA</title>
+    <style>
+      * {
+        padding: 0%;
+        margin: 0%;
+      }
+  
+      .banner {
+        background: url(../Basics/assets/images/image17.jpg) no-repeat center;
+        height: 100vh;
+        background-size: cover;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+      }
+  
+      #form {
+        border: 1px solid white;
+        border-radius: 20px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+        width: fit-content;
+        /* margin: auto; */
+        margin: 50px;
+      }
+  
+      .input1 {
+        padding: 10px;
+        font-size: 25px;
+        font-weight: bold;
+        color: rgb(255, 255, 255);
+        /* margin-left: 0px; */
+        border-radius: 30px;
+        /* width: 70%; */
+      }
+  
+      input {
+        background-color: transparent;
+        color: white;
+        font-size: 20px;
+        padding: 5px;
+        border: 2px solid yellow;
+        border-radius: 10px;
+        /* width: 20%; */
+      }
+  
+      button {
+        background-color: rgb(240, 238, 234);
+        color: black;
+        border-radius: 20px;
+        border: 1px solid transparent;
+        font-size: 17px;
+        /* margin-left: 40%; */
+        /* margin-top: 20%; */
+      }
+  
+      button:hover {
+        transform: scale(1.5, 1.5);
+        /* background-color: red; */
+      }
+  
+      #result {
+        /* background-color: rgba(2, 36, 69, 0.7); */
+        /* margin: auto; */
+        /* width: 30%; */
+        /* padding: 30px; */
+        color: red;
+        font-size: 20px;
+        font-weight: bold;
+        /* text-align: center; */
+        border-radius: 20px;
+        /* margin-top: 60px; */
+      }
+  
+      h1 {
+        /* background-color: rgba(14, 225, 14, 0.5); */
+        text-decoration: underline;
+        /* width: fit-content; */
+        /* border-radius: 10px; */
+        text-align: center;
+        font-size: 40px;
+        margin-top: -30px;
+        /* margin-left: 2%; */
+        /* flex-shrink: initial; */
+      }
+    </style>
+</head>
+<body>
+    <section class="banner">
+        <h1>Fibonacci Sequence</h1>
+    
+        <form onsubmit="fibo(event)" id="form">
+          <div class="input1">
+            <label for="inp1">Enter a Number:</label>
+            <input type="text" name="inp1" id="inp1" />
+           
+          </div>
+    
+          <div>
+            <button type="submit">Check</button>
+          </div>
+        </form>
+    
+        <div id="result"></div>
+    
+      </section>
+
+      <script>
+        function fibo(sid){
+            sid.preventDefault();
+
+            let input = document.getElementById("inp1").value;
+            let arr = input.split(" ").map(Number);
+            let output = document.getElementById("result");
+            let flag = false;
+
+            if(arr.length>=3){
+            for(let i=0;i<arr.length-2;i++){
+            if(arr[i] + arr[i+1] == arr[i+2]){
+                flag =true;
+                }else{
+                    flag = false;
+                }
+            }
+            if(flag ==true){
+                output.innerHTML=`${input} is a Fibonacci number`;
+            }else{
+                output.innerHTML=`${input} isn't a fibonnaci number` ;
+            }
+        }else{
+            output.innerHTML='Please enter atleast 3 digit';
+        }
+    }
+      </script>
+</body>
+</html>
