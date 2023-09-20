@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Euclidean GCD</title>
+        <style>
+            *{
+                padding: 0%;
+                margin: 0%;
+            }
+          .banner {
+            background: url(../Basics/assets/images/image18.jpg) no-repeat center;
+            height:100vh;
+            background-size: cover;
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 20px;
+          }
+    
+          #form {
+            border: 2px solid goldenrod;
+            border-radius: 20px;
+             display: flex;
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center;
+            padding: 30px;
+             width: fit-content;
+            /* margin: auto; */
+            margin: 40px;
+          }
+    
+          .input1 {
+            padding: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: yellow;
+            /* margin-left: 0px; */
+            border-radius: 30px;
+            /* width: 70%; */
+          }
+          input {
+            background-color: transparent;
+            color: yellow;
+            font-size: 15px;
+            padding: 5px;
+            border: 2px solid white;
+            border-radius: 10px;
+            /* width: 20%; */
+          }
+          button {
+            background-color: rgb(240, 238, 234);
+            color: black;
+            border-radius: 10px;
+            border: 1px solid transparent;
+            font-size: 15px;
+            padding: 10px;
+            /* margin-left: 40%; */
+            /* margin-top: 20%; */
+          }
+    
+          button:hover {
+            transform: scale(1.5, 1.5);
+            /* background-color: red; */
+          }
+    
+          #result {
+            /* background-color: rgba(2, 36, 69, 0.7); */
+            /* margin: auto; */
+            /* width: 30%; */
+            /* padding: 30px; */
+            color: green;
+            font-size: 20px;
+            font-weight: bold;
+            /* text-align: center; */
+            border-radius: 20px;
+            /* margin-top: 60px; */
+          }
+    
+          h1 {
+            /* background-color: rgba(14, 225, 14, 0.5); */
+            text-decoration: underline;
+            color: lightblue;
+            margin-top: 30px;
+            /* width: fit-content; */
+            /* border-radius: 10px; */
+            text-align: center;
+            font-size: 40px;
+            /* margin-left: 2%; */
+            /* flex-shrink: initial; */
+          }
+         
+        </style>
+    </head>
+    <body>
+       
+        <section class="banner">
+            <h1>Finding GCD using Euclidean algorithm</h1>
+        
+            <form onsubmit="gcd(event)" id="form">
+              <div class="input1">
+                <label for="inp1">Enter 1st Number:</label>
+                <input type="number" name="inp1" id="inp1" />
+                <br /><br />
+                <label for="inp2">Enter 2nd Number:</label>
+                <input type="number" name="inp2" id="inp2" />
+              </div>
+              <br>
+              <div>
+                <button type="submit">GCD</button>
+              </div>
+            </form>
+        
+            <h3 id="result"></h3>
+          </section>
+    </body>
+</html>
